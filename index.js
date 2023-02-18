@@ -2,6 +2,22 @@
 $(function(){
 
 
+
+    const navLinks = document.querySelectorAll('.link');
+
+for (let i = 0; i < navLinks.length; i++) {
+  navLinks[i].addEventListener('click', function(event) {
+    event.preventDefault(); // prevent the default action of clicking a link
+    const targetSection = this.getAttribute('href'); // get the ID of the target section
+    const targetPosition = document.querySelector(targetSection).offsetTop; // get the top position of the target section
+    window.scrollTo({
+      top: targetPosition -150,
+      behavior: 'smooth' // use smooth scrolling behavior
+    });
+  });
+}
+
+
 // select toggle btn wrapper
 const toggleBtnIcons = document.querySelector('.toggle-icon');
 // select both the toggle btns as well the bars and the times
